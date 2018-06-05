@@ -22,7 +22,7 @@ set :user, 'jidesh'          # Username in the server to SSH to.
 # Shared dirs and files will be symlinked into the app-folder by the 'deploy:link_shared_paths' step.
 # Some plugins already add folders to shared_dirs like `mina/rails` add `public/assets`, `vendor/bundle` and many more
 # run `mina -d` to see all folders and files already included in `shared_dirs` and `shared_files`
-set :shared_dirs, fetch(:shared_dirs, []).push('public/assets','public/system')
+set :shared_dirs, fetch(:shared_dirs, []).push('public/assets','public/system', 'log','tmp')
 set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/secrets.yml')
 
 # This task is the environment that is loaded for all remote run commands, such as
@@ -54,16 +54,15 @@ task :deploy do
     invoke :'deploy:link_shared_paths'
     invoke :'bundle:install'
     invoke :'rails:db_migrate'
-    command %{npm install}
+    # command %{npm install}
     invoke :'rails:assets_precompile'
-    # command %{bundle exec rake assets:precompile}
-    # command %{bundle install --deployment --without development test}
     invoke :'deploy:cleanup'
 
     on :launch do
       in_path(fetch(:current_path)) do
-        command %{pushd /home/gaurav/app/sharetribe/current}
-        # command %{passenger-config restart-app $(pwd)}
+        command %{bundle exec rake ts:index}
+        command %{bundle exec rake ts:start}
+        command %{passenger-config restart-app $(pwd) }
         command %{mkdir -p tmp/}
         command %{touch tmp/restart.txt}
       end
@@ -74,6 +73,8 @@ task :deploy do
   # run(:local){ say 'done' }
 end
 
-# For help in making your deploy script, see the Mina documentation:
-#
-#  - https://github.com/mina-deploy/mina/tree/master/docs
+task :jobs do
+  command %{pushd "/home/gaurav/app/sharetribe/current"}
+  command %{script/startup.sh worker}
+  command %{echo "jobs started"}
+end

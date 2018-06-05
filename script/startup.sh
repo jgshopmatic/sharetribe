@@ -25,7 +25,7 @@ case "$APP_MODE" in
             # Do nothing
             exec sleep 86400
         else
-            exec bundle exec rake jobs:work
+            exec nohup bundle exec rake jobs:work &
         fi
         ;;
     *)
