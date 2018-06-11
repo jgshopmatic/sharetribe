@@ -98,8 +98,9 @@
               = action_button_label(@listing)
       - else
         %button.enabled-book-button
-          .content
-            = action_button_label(@listing)
+          .content.buy_in_store
+            = link_to "Buy in store", @listing.affiliate_url, :target => "_blank"
+            -# = action_button_label(@listing)
 
     - if @listing_presenter.payments_enabled?
       .row

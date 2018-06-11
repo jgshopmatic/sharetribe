@@ -48,6 +48,8 @@
 #  shipping_price_additional_cents :integer
 #  availability                    :string(32)       default("none")
 #  per_hour_ready                  :boolean          default(FALSE)
+#  affiliate_url                   :string(255)      default("")
+#  image_urls                      :string(255)      default("")
 #
 # Indexes
 #
