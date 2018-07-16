@@ -151,7 +151,7 @@
               = link_to PersonViewUtils.person_display_name(@listing.author, @current_community), @listing.author, :id => "listing-author-link", :class => "listing-author-name-link", :title => "#{PersonViewUtils.person_display_name(@listing.author, @current_community)}"
             - if @listing.author != @current_user
               .listing-author-contact
-                %a#listing-contact{href: contact_to_listing_path(:listing_id => @listing.id.to_s), :class => "listing-author-contact-button"}
+                %a#listing-contact{href: "/merchant_store/redirect.html?url=https://#{@person.merchant_canonical_name}.myshopmatic.com", :class => "listing-author-contact-button", target:"_blank" }
                   .content
                     = t(".contact")
 
