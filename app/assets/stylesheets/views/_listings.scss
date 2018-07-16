@@ -261,3 +261,18 @@ $listing-author-avatar-height: 108;
     }
   }
 }
+.buy_in_store.content {
+  a {
+    color: #fff;
+  }
+}
+.affiliate_link {
+  padding: 15px 118px;
+  line-height: 4.0;
+  background: #4a90e2;
+  color: #fff;
+  border-radius: 5px;
+  &:hover {
+    color: #fff;
+  }
+}
