@@ -62,15 +62,15 @@ task :deploy do
       in_path(fetch(:current_path)) do
         #        command %{bundle exec rake ts:index}
         #        command %{bundle exec rake ts:start}
+        command %{kill -9 `pgrep -f 'sphinx'`}
+        command %{kill -9 `pgrep -f 'rake jobs:work'`}
         command %{passenger-config restart-app $(pwd) }
         command %{mkdir -p tmp/}
         command %{touch tmp/restart.txt}
-        command %{pushd "/home/gaurav/app/sharetribe/current"}
-        command %{kill -9 `pgrep -f 'rake jobs:work'`}
-        command %{kill -9 `pgrep -f 'sphinx'`}
-        command %{bundle exec rake ts:index}
-        command %{bundle exec rake jobs:work > /home/gaurav/app/sharetribe/log/jobs.log &}
-        command %{bundle exec rake ts:start > /home/gaurav/app/sharetribe/log/ts.log &}
+        #command %{pushd "/home/gaurav/app/sharetribe/current"}
+        #
+
+
 
       end
     end
@@ -80,8 +80,20 @@ task :deploy do
   # run(:local){ say 'done' }
 end
 
+task :index do
+command %{pushd "/home/gaurav/app/sharetribe/current"}
+  command %{bundle exec rake ts:index}
+  command %{echo "indexing done"}
+end
+
+task :ts do
+  command %{pushd "/home/gaurav/app/sharetribe/current"}
+  command %{echo `nohup bundle exec rake ts:start > /home/gaurav/app/sharetribe/log/ts.log 2>&1 & sleep 5`}
+  command %{echo "ts started"}
+end
+
 task :jobs do
   command %{pushd "/home/gaurav/app/sharetribe/current"}
-  command %{script/startup.sh worker}
+  command %{echo `nohup bundle exec rake jobs:work > /home/gaurav/app/sharetribe/log/jobs.log 2>&1 & sleep 5`}
   command %{echo "jobs started"}
 end
