@@ -25,7 +25,9 @@ case "$APP_MODE" in
             # Do nothing
             exec sleep 86400
         else
-            exec bundle exec rake jobs:work
+            exec bundle exec rake ts:index
+            exec bundle exec rake jobs:work > /home/gaurav/app/sharetribe/log/jobs.log &
+            exec bundle exec rake ts:start > /home/gaurav/app/sharetribe/log/ts.log & 
         fi
         ;;
     *)
