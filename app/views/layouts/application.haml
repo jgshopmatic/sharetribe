@@ -46,7 +46,12 @@
                 = yield :title_header
         - elsif !(is_homepage && FeatureFlagHelper.feature_enabled?(:topbar_v1))
           .coverimage
-            %figure.marketplace-cover-small-fade{:style => "background-image: url('#{ (@person ? @person: @listing.author).site_cover_image }')"}
+            - if (@person ? @person: @listing.author).site_cover_image
+              %figure.marketplace-cover-small-fade{:style => "background-image: url('#{ (@person ? @person: @listing.author).site_cover_image }')"}
+            - else
+              %figure.marketplace-cover-small.fluidratio
+              .coverimage-fade{:class => yield(:coverfade_class)}
+              %figure.marketplace-cover-small-fade.fluidratio
           .title-container
             .title-header-wrapper
               .marketplace-title-header
