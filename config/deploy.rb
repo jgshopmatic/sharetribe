@@ -65,6 +65,13 @@ task :deploy do
         command %{passenger-config restart-app $(pwd) }
         command %{mkdir -p tmp/}
         command %{touch tmp/restart.txt}
+        command %{pushd "/home/gaurav/app/sharetribe/current"}
+        command %{kill -9 `pgrep -f 'rake jobs:work'`}
+        command %{kill -9 `pgrep -f 'sphinx'`}
+        command %{bundle exec rake ts:index}
+        command %{bundle exec rake jobs:work > /home/gaurav/app/sharetribe/log/jobs.log &}
+        command %{bundle exec rake ts:start > /home/gaurav/app/sharetribe/log/ts.log &}
+
       end
     end
   end

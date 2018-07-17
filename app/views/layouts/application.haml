@@ -52,11 +52,7 @@
               %figure.marketplace-cover-small.fluidratio
               .coverimage-fade{:class => yield(:coverfade_class)}
               %figure.marketplace-cover-small-fade.fluidratio
-          .title-container
-            .title-header-wrapper
-              .marketplace-title-header
-                = yield :title_header
-
+          
       %article.page-content{class: is_homepage && !@big_cover_photo ? 'no-cover-photo' : ''}
         .wrapper
           = render :partial => "layouts/notifications"
