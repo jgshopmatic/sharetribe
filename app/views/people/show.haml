@@ -11,6 +11,7 @@
     .row.relative
       .people-image-mobile
         = huge_avatar_thumb(@person)
+        = @person.site_contact_us if @person
       .profile-action-buttons-mobile
         = render :partial => "profile_action_buttons"
 
@@ -66,6 +67,7 @@
     .row
       .people-image
         = huge_avatar_thumb(@person)
+        =@person.site_contact_us  if @person
 
     .row
       .profile-action-buttons-desktop
