@@ -91,8 +91,14 @@ Rails.application.configure do
   config.active_record.migration_error = :page_load
 
   # Expands the lines which load the assets
-  config.assets.debug = false
+  config.assets.debug = true
   config.assets.quiet = true
+#  config.middleware.insert_after ActionDispatch::Static, Rack::LiveReload
+
+
+  config.assets.compile = true
+  config.assets.digest = true
+
 
   # Raises error for missing translations
   config.action_view.raise_on_missing_translations = false

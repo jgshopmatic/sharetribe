@@ -1208,6 +1208,7 @@ CREATE TABLE `people` (
   `contact_us_url` varchar(255) DEFAULT '',
   `product_url` varchar(255) DEFAULT '',
   `about_us_raw` mediumblob,
+  `site_contact_us` text,
   UNIQUE KEY `index_people_on_username_and_community_id` (`username`,`community_id`) USING BTREE,
   UNIQUE KEY `index_people_on_uuid` (`uuid`),
   UNIQUE KEY `index_people_on_email` (`email`) USING BTREE,
@@ -2296,6 +2297,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20180608070230'),
 ('20180710091213'),
 ('20180710092631'),
-('20180712043349');
+('20180712043349'),
+('20180719034044');
 
 
