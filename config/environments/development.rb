@@ -97,7 +97,7 @@ Rails.application.configure do
 
 
   config.assets.compile = true
-  config.assets.digest = true
+  config.assets.digest = false
 
 
   # Raises error for missing translations

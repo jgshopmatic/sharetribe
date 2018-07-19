@@ -62,8 +62,8 @@ task :deploy do
       in_path(fetch(:current_path)) do
         #        command %{bundle exec rake ts:index}
         #        command %{bundle exec rake ts:start}
-        command %{kill -9 `pgrep -f 'sphinx'`}
-        command %{kill -9 `pgrep -f 'rake jobs:work'`}
+        command %{kill -9 `pgrep -f 'sphinx'` > /dev/null 2> /dev/null || :}
+        command %{kill -9 `pgrep -f 'rake jobs:work'` > /dev/null 2> /dev/null || :}
         command %{passenger-config restart-app $(pwd) }
         command %{mkdir -p tmp/}
         command %{touch tmp/restart.txt}
