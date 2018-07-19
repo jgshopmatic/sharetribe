@@ -44,6 +44,9 @@
             %figure.marketplace-cover.fluidratio
               .lander-content.marketplace-lander-content
                 = yield :title_header
+          .people-image
+            = huge_avatar_thumb(@person)
+            -#=@person.site_contact_us  if @person
         - elsif !(is_homepage && FeatureFlagHelper.feature_enabled?(:topbar_v1))
           .coverimage
             - if (@person || @listing) && (@person ? @person: @listing.author).site_cover_image
@@ -52,6 +55,9 @@
               %figure.marketplace-cover-small.fluidratio
               .coverimage-fade{:class => yield(:coverfade_class)}
               %figure.marketplace-cover-small-fade.fluidratio
+            .people-image
+              = huge_avatar_thumb(@person)
+              -#=@person.site_contact_us  if @person
           
       %article.page-content{class: is_homepage && !@big_cover_photo ? 'no-cover-photo' : ''}
         .wrapper

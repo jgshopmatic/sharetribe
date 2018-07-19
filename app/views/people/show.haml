@@ -6,7 +6,7 @@
     %span.profile-title= PersonViewUtils.person_display_name(@person, @current_community)
 
 .row
-  .col-8
+  .col-12
 
     .row.relative
       .people-image-mobile
@@ -15,7 +15,7 @@
       .profile-action-buttons-mobile
         = render :partial => "profile_action_buttons"
 
-    .row
+    .row.about-us
       - if @person.description && !@person.description.blank?
         - text_with_line_breaks do
           = @person.description
@@ -24,6 +24,12 @@
           .icon-with-text-container
             .ss-chat.icon-part
             .ss.text-part= t(".add_description")
+
+    .row
+      .address
+        =@person.site_contact_us  if @person
+      .profile-action-buttons-desktop
+        = render :partial => "profile_action_buttons"
 
     .row
       %h2.people-header
@@ -62,16 +68,7 @@
         - if received_testimonials.size > 0
           #profile-testimonials-list
             = render :partial => "testimonials", :locals => {:received_testimonials => received_testimonials, :limit => 3}
-
-  .col-4
-    .row
-      .people-image
-        = huge_avatar_thumb(@person)
-        =@person.site_contact_us  if @person
-
-    .row
-      .profile-action-buttons-desktop
-        = render :partial => "profile_action_buttons"
+              
 
 - content_for :extra_javascript do
   :javascript

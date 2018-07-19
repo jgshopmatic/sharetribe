@@ -13,6 +13,10 @@ $profile-pic-gutter-mobile: lines(0.5);
 
   @include media(tablet) {
     display: block;
+    position: absolute;
+    top: 14em;
+    left: 37%;
+    max-width: 260px;
   }
 }
 
@@ -53,7 +57,8 @@ $profile-pic-gutter-mobile: lines(0.5);
 
 .profile-edit-link, .profile-contact-link {
   @include grey-button;
-  width: 100%;
+  width: 300px;
+  margin: 0 auto;
 }
 
 .people-image-mobile {

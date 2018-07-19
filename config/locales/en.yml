@@ -1308,8 +1308,8 @@ en:
       no_listings_with_your_search_criteria: "Sorry, no listings could be found for your search criteria. Maybe try other search terms?"
       no_listings_notification: "No listings. %{add_listing_link}."
       add_listing_link_text: "Add new listing"
-      open_listing: "open listing"
-      open_listings: "open listings"
+      open_listing: "Products to explore"
+      open_listings: "Products to explore"
       private_listing_notification_log_in: "log in"
       is: is
       are: are
@@ -2046,13 +2046,13 @@ en:
       reviews: "received reviews"
       listing: listing
       listings: listings
-      open_listing: "open listing"
-      open_listings: "open listings"
+      open_listing: "Products to explore"
+      open_listings: "Products to explore"
       no_listings: "No listings"
       no_open_listings: "No open listings"
       no_reviews: "No reviews"
-      show_all_listings: "Show all listings"
-      show_all_open_listings: "Show all open listings"
+      show_all_listings: "Show all products"
+      show_all_open_listings: "Show all products"
       show_all_reviews: "Show all reviews"
     followed_people:
       you_follow_plural: "You follow %{count} people"
