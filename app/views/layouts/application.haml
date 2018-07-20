@@ -55,7 +55,7 @@
               .coverimage-fade{:class => yield(:coverfade_class)}
               %figure.marketplace-cover-small-fade.fluidratio
             .people-image
-              = huge_avatar_thumb(@person)
+              = huge_avatar_thumb(@person ? @person: @listing.author)
 
       %article.page-content{class: is_homepage && !@big_cover_photo ? 'no-cover-photo' : ''}
         .wrapper
