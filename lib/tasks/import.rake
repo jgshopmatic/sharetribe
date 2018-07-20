@@ -25,24 +25,26 @@ task :import, [:filename] => :environment do
                       }
                   })
   end
-end
 
-
-def make_post_req(data)
-  require 'net/http'
-  require 'json'
-  begin
-    uri = URI('https://dev.goshopmatic.com/api/v1/listings')
-    http = Net::HTTP.new(uri.host, uri.port, "localhost", "8888")
-    req = Net::HTTP::Post.new(uri.path, {'Content-Type' =>'application/json', 'Authorization' => 'XXXXXXXXXXXXXXXX'})
-    http.use_ssl = true
-    req.body = data.to_json
-    puts ("------------- \n ")
-    puts(req.body)
-    puts("-------------- \n")
-    res = http.request(req)
-    puts JSON.parse(res.status)
-  rescue => e
-    puts "failed #{e}"
+  def make_post_req(data)
+    require 'net/http'
+    require 'json'
+    begin
+      uri = URI('https://dev.goshopmatic.com/api/v1/listings')
+      http = Net::HTTP.new(uri.host, uri.port, "localhost", "8888")
+      req = Net::HTTP::Post.new(uri.path, {'Content-Type' =>'application/json', 'Authorization' => 'XXXXXXXXXXXXXXXX'})
+      http.use_ssl = true
+      req.body = data.to_json
+      puts ("------------- \n ")
+      puts(req.body)
+      puts("-------------- \n")
+      res = http.request(req)
+      puts JSON.parse(res.status)
+    rescue => e
+      puts "failed #{e}"
+    end
   end
+  
 end
+
+
