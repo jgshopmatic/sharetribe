@@ -5,11 +5,10 @@ require 'net/http'
 require 'json'
 desc "Imports a CSV file into an ActiveRecord table"
 task :import, [:filename] => :environment do
-
   mproducts = ActiveRecord::Base.connection.execute("select  mp.name, mp.description, mp.price, mp.image_1, mp.image_2, mp.image_3, mp.image_4, mp.slug, mp.fqdn, p.username, p.merchant_category from merchant_products mp, people p where mp.tenant_id = p.merchant_id ")
 
   mproducts.each do |row|
-    make_post_req({
+    data = {
                       :listing=>{
                           :title=> row[0],
                           :price=>row[2],
@@ -23,12 +22,7 @@ task :import, [:filename] => :environment do
                           :affiliate_url => "https://#{row[8]}/products/#{row[7]}",
                           :username => row[9]
                       }
-                  })
-  end
-
-  def make_post_req(data)
-    require 'net/http'
-    require 'json'
+                  }
     begin
       uri = URI('https://dev.goshopmatic.com/api/v1/listings')
       http = Net::HTTP.new(uri.host, uri.port, "localhost", "8888")
@@ -44,7 +38,6 @@ task :import, [:filename] => :environment do
       puts "failed #{e}"
     end
   end
-  
 end
 
 
