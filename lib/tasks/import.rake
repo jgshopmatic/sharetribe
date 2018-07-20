@@ -46,25 +46,3 @@ def make_post_req(data)
     puts "failed #{e}"
   end
 end
-
-=begin
-#file = '/home/gaurav/app/sharetribe/shared/InternalMerchantData_updated.xlsx - M1Products.csv'
-file = '/Users/jideshgopalan/Downloads/mdata/InternalMerchantData_updated.xlsx - M1Products.csv'
-
-CSV.foreach(file, :headers => true) do |row|
-  make_post_req({
-                    :listing=>{
-                        :title=> row[1],
-                        :price=>row[5],
-                        :shipping_price=>"0",
-                        :shipping_price_additional=>"0",
-                        :delivery_methods=>["pickup"],
-                        :description=>row[4],
-                        :category=>row[23],
-                        :listing_shape=>"products",
-                        :images=> row[13].strip.split(',').collect {|x| x.strip },
-                        :affiliate_url => "https://#{row[23]}.myshopmatic.com/products/#{row[14]}",
-                        :username => row[22]
-                    }
-                })
-end=end
