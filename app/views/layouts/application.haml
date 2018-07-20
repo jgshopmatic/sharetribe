@@ -48,14 +48,14 @@
             = huge_avatar_thumb(@person)
         - elsif !(is_homepage && FeatureFlagHelper.feature_enabled?(:topbar_v1))
           .coverimage
-            - if (@person || @listing) && (@person ? @person: @listing.author).site_cover_image
+            - if ((@person || @listing) && (@person ? @person: @listing.author).site_cover_image?)
               %figure.marketplace-cover-small-fade{:style => "background-image: url('#{ (@person ? @person: @listing.author).site_cover_image }')"}
             - else
               %figure.marketplace-cover-small.fluidratio
               .coverimage-fade{:class => yield(:coverfade_class)}
               %figure.marketplace-cover-small-fade.fluidratio
             .people-image
-              = huge_avatar_thumb(@person ? @person: @listing.author)
+              = huge_avatar_thumb(@person ? @person: @listing.author) if (@person || @listing)
 
       %article.page-content{class: is_homepage && !@big_cover_photo ? 'no-cover-photo' : ''}
         .wrapper
