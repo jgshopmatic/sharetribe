@@ -61,6 +61,7 @@
 #  product_url                        :string(255)      default("")
 #  about_us_raw                       :binary(16777215)
 #  site_contact_us                    :text(65535)
+#  merchant_category                  :string(255)      default("")
 #
 # Indexes
 #
