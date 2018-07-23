@@ -8,7 +8,7 @@ task :import, [:filename] => :environment do
   mproducts = ActiveRecord::Base.connection.execute("select  mp.name, mp.description, mp.price, mp.image_1, mp.image_2, mp.image_3, mp.image_4, mp.slug, mp.fqdn, p.username, p.merchant_category from merchant_products mp, people p where mp.tenant_id = p.merchant_id ")
 
   mproducts.each do |row|
-    images =  [row[3], row[4], row[5], row[6]].compact.select {|item| item!=""}
+    images =  [row[3], row[4], row[5], row[6]].compact.select {|item| item != "" or item != "null"}
     data = {
                       :listing=>{
                           :title=> row[0],
