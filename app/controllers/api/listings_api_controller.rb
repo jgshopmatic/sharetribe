@@ -6,7 +6,7 @@ class Api::ListingsApiController < Api::ApiBaseController
 
   def create
     @current_user = Person.find_by_username(params[:listing][:username])
-    @category_id = Category.find_by_url(params[:listing][:category]).id
+    @category_id = CategoryTranslation.find_by_name(params[:listing][:category]).category_id
     shape = ListingShape.find_by_name(params[:listing][:listing_shape])
     listing_uuid = UUIDUtils.create
     listing_info = listingInfo(params, @category_id, shape.id)
