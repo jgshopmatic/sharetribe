@@ -265,16 +265,6 @@ module CustomLandingPage
         "button_path": {"type": "path", "id": "search"},
         "locations": [
             {
-                "title": "About",
-                "location": { "type": "path", "id": "about" },
-                "background_image": {"type": "assets", "id": "default_hero_background"}
-            },
-            {
-                "title": "Contact Us",
-                "location": { "type": "path", "id": "contact_us" },
-                "background_image": {"type": "assets", "id": "default_hero_background"}
-            },
-            {
                 "location": "https://bagshare.wordpress.com/",
                 "background_image": {"type": "assets", "id": "default_hero_background"}
             }
@@ -287,13 +277,6 @@ module CustomLandingPage
       "social_media_icon_color": {"type": "marketplace_data", "id": "primary_color"},
       "social_media_icon_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "links": [
-        {"label": "About", "href": {"type": "path", "id": "about"}},
-        {"label": "Contact us", "href": {"type": "path", "id": "contact_us"}},
-        {"label": "How to use?", "href": {"type": "path", "id": "how_to_use"}},
-        {"label": "Terms", "href": {"type": "path", "id": "terms"}},
-        {"label": "Privary", "href": {"type": "path", "id": "privacy"}},
-        {"label": "Invite new members", "href": {"type": "path", "id": "new_invitation"}},
-        {"label": "Sharetribe", "href": {"value": "https://www.sharetribe.com"}}
       ],
       "social": [
         {"service": "facebook", "url": "https://www.facebook.com/Sharetribe/"},
@@ -503,10 +486,7 @@ JSON
             "social_media_icon_color": {"type": "marketplace_data", "id": "primary_color"},
             "social_media_icon_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
             "links": [
-                {"label": "About", "href": {"type": "path", "id": "about"}},
-                {"label": "Example Link", "href": {"value": "https://www.sharetribe.com"}},
-                {"label": "Invite new members", "href": {"type": "path", "id": "new_invitation"}},
-                {"label": "Contact us", "href": {"type": "path", "id": "contact_us"}}
+                
             ],
             "social": [
                 {"service": "facebook", "url": "https://www.facebook.com/CHANGEME"},
@@ -535,6 +515,5 @@ JSON
 }
 
 JSON
-
   end
 end

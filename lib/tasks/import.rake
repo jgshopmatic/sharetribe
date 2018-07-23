@@ -8,6 +8,7 @@ task :import, [:filename] => :environment do
   mproducts = ActiveRecord::Base.connection.execute("select  mp.name, mp.description, mp.price, mp.image_1, mp.image_2, mp.image_3, mp.image_4, mp.slug, mp.fqdn, p.username, p.merchant_category from merchant_products mp, people p where mp.tenant_id = p.merchant_id ")
 
   mproducts.each do |row|
+    images =  [row[3], row[4], row[5], row[6]].compact.select {|item| item!=""}
     data = {
                       :listing=>{
                           :title=> row[0],
@@ -18,14 +19,14 @@ task :import, [:filename] => :environment do
                           :description=>row[1],
                           :category=>row[10],
                           :listing_shape=>"products",
-                          :images=> [row[3], row[4], row[5], row[6]],
+                          :images=> images,
                           :affiliate_url => "https://#{row[8]}/products/#{row[7]}",
                           :username => row[9]
                       }
                   }
     begin
       uri = URI('https://dev.goshopmatic.com/api/v1/listings')
-      http = Net::HTTP.new(uri.host, uri.port, "localhost", "8888")
+      http = Net::HTTP.new(uri.host, uri.port)
       req = Net::HTTP::Post.new(uri.path, {'Content-Type' =>'application/json', 'Authorization' => 'XXXXXXXXXXXXXXXX'})
       http.use_ssl = true
       req.body = data.to_json
