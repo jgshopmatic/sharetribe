@@ -10,15 +10,20 @@
   border-bottom: 1px solid var(--Topbar_borderColor);
   font-size: var(--Topbar_fontSize);
   font-family: var(--Topbar_fontFamily);
+  position: relative;
+  max-width: 83em;
+  margin: 0 auto;
 
   @media (--medium-viewport) {
     height: var(--Topbar_tabletHeight);
     padding: var(--Topbar_tabletPadding);
+    height: 64px;
   }
 
   @media (--large-viewport) {
     height: var(--Topbar_height);
     padding: var(--Topbar_padding);
+    height: 64px;
   }
 
   /* Base style overrides to reset styles coming from the old SASS styles. */
@@ -175,7 +180,7 @@
 }
 
 .topbarMediumSpacer {
-  display: none;
+  display: block;
 
   @media (--medium-viewport) {
     display: block;
@@ -183,7 +188,7 @@
   }
 
   @media (--large-viewport) {
-    display: none;
+    display: block;
   }
 }
 
