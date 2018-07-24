@@ -21,6 +21,8 @@
 
 .root {
   line-height: 1em;
+  background: #fff;
+  border-radius: 25px;
 }
 
 .form {
