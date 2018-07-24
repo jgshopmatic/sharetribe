@@ -93,7 +93,7 @@
 // Image frame with 3/2 aspect ratio
 .listing-image-frame {
   @include block-with-aspect-ratio(3/2);
-  background-color: $body;
+  background-color: transparent;
   position: absolute;
   top: 0px;
   left: 0px;

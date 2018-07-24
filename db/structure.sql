@@ -776,6 +776,8 @@ CREATE TABLE `listings` (
   `shipping_price_additional_cents` int(11) DEFAULT NULL,
   `availability` varchar(32) DEFAULT 'none',
   `per_hour_ready` tinyint(1) DEFAULT '0',
+  `affiliate_url` varchar(255) DEFAULT '',
+  `image_urls` varchar(255) DEFAULT '',
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_listings_on_uuid` (`uuid`),
   KEY `index_listings_on_new_category_id` (`category_id`) USING BTREE,
@@ -917,6 +919,16 @@ CREATE TABLE `menu_links` (
   `sort_priority` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `index_menu_links_on_community_and_sort` (`community_id`,`sort_priority`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `merchants`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `merchants` (
+  `id` bigint(20) NOT NULL,
+  `cover_image` varchar(255) DEFAULT NULL,
+  `about_us` blob,
+  `brand_image` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `mercury_images`;
@@ -1183,6 +1195,26 @@ CREATE TABLE `people` (
   `min_days_between_community_updates` int(11) DEFAULT '1',
   `deleted` tinyint(1) DEFAULT '0',
   `cloned_from` varchar(22) DEFAULT NULL,
+  `merchant_id` bigint(20) DEFAULT '0',
+  `merchant_name` varchar(255) DEFAULT '',
+  `merchant_canonical_name` varchar(255) DEFAULT '',
+  `merchant_status` int(11) DEFAULT '0',
+  `merchant_salesforce_id` varchar(255) DEFAULT '',
+  `merchant_notification_email` varchar(255) DEFAULT '',
+  `domain_id` bigint(20) DEFAULT '0',
+  `domain_fqdn` varchar(255) DEFAULT '',
+  `domain_status` int(11) DEFAULT '0',
+  `domain_active` tinyint(1) DEFAULT '1',
+  `site_id` bigint(20) DEFAULT '0',
+  `site_cover_image` varchar(255) DEFAULT '',
+  `site_logo` varchar(255) DEFAULT '',
+  `site_about_us` text,
+  `site_url` varchar(255) DEFAULT '',
+  `contact_us_url` varchar(255) DEFAULT '',
+  `product_url` varchar(255) DEFAULT '',
+  `about_us_raw` mediumblob,
+  `site_contact_us` text,
+  `merchant_category` varchar(255) DEFAULT '',
   UNIQUE KEY `index_people_on_username_and_community_id` (`username`,`community_id`) USING BTREE,
   UNIQUE KEY `index_people_on_uuid` (`uuid`),
   UNIQUE KEY `index_people_on_email` (`email`) USING BTREE,
@@ -2270,6 +2302,13 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20180518073348'),
 ('20180523121344'),
 ('20180524075239'),
-('20180524081429');
+('20180524081429'),
+('20180608064909'),
+('20180608070230'),
+('20180710091213'),
+('20180710092631'),
+('20180712043349'),
+('20180719034044'),
+('20180720075807');
 
 

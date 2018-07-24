@@ -520,6 +520,10 @@ Rails.application.routes.draw do
 
   get "(/:locale)/:person_id(*path)" => redirect(id_to_username), :constraints => { :locale => locale_matcher, :person_id => /[a-zA-Z0-9_-]{22}/ }
 
+  scope module: 'api', path: 'api' do
+    get '/v1/listings' => "listings_api#index"
+    post '/v1/listings' => "listings_api#create"
+  end
   #keep this matcher last
   #catches all non matched routes, shows 404 and logs more reasonably than the alternative RoutingError + stacktrace
 

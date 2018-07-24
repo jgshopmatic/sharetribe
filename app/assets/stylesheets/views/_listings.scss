@@ -104,9 +104,9 @@ $listing-author-avatar-height: 108;
 }
 
 .listing-author-avatar {
-  width: em($listing-author-avatar-width);
-  height: em($listing-author-avatar-height);
-  position: absolute;
+  // width: em($listing-author-avatar-width);
+  // height: em($listing-author-avatar-height);
+  // position: absolute;
   top: 0;
   left: 0;
 
@@ -126,11 +126,11 @@ $listing-author-avatar-height: 108;
 
 .listing-author-details {
   width: 100%;
-  padding-left: em($listing-author-avatar-width);
+  // padding-left: em($listing-author-avatar-width);
   min-height: em($listing-author-avatar-height);
-  padding-left: em($listing-author-avatar-width) + lines(0.75);
-  margin-top: lines(0.25); // Author box looks a bit better when given a bit more room
-  margin-bottom: lines(0.75); // Author box looks a bit better when given a bit more room
+  // padding-left: em($listing-author-avatar-width) + lines(0.75);
+  // margin-top: lines(0.25); // Author box looks a bit better when given a bit more room
+  // margin-bottom: lines(0.75); // Author box looks a bit better when given a bit more room
 }
 
 .listing-author-name {
@@ -259,5 +259,20 @@ $listing-author-avatar-height: 108;
     .col-4 {
       margin-bottom: 0;
     }
+  }
+}
+.buy_in_store.content {
+  a {
+    color: #fff;
+  }
+}
+.affiliate_link {
+  padding: 15px 118px;
+  line-height: 4.0;
+  background: #4a90e2;
+  color: #fff;
+  border-radius: 5px;
+  &:hover {
+    color: #fff;
   }
 }

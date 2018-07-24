@@ -48,6 +48,8 @@
 #  shipping_price_additional_cents :integer
 #  availability                    :string(32)       default("none")
 #  per_hour_ready                  :boolean          default(FALSE)
+#  affiliate_url                   :string(255)      default("")
+#  image_urls                      :string(255)      default("")
 #
 # Indexes
 #
@@ -242,7 +244,7 @@ class Listing < ApplicationRecord
   end
 
   def answer_for(custom_field)
-    custom_field_values.by_question(custom_field).first
+    custom_field_values.find { |value| value.custom_field_id == custom_field.id }
   end
 
   def unit_type

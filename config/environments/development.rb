@@ -94,6 +94,8 @@ Rails.application.configure do
   config.assets.debug = false
   config.assets.quiet = true
 
+  config.assets.compile = true
+  config.assets.digest = false
   # Raises error for missing translations
   config.action_view.raise_on_missing_translations = false
 

@@ -84,22 +84,9 @@
 
       = render partial: "delivery_opts", locals: { delivery_opts: @listing_presenter.delivery_opts, is_author: @listing_presenter.is_author }
 
-      = hidden_field_tag(:listing_id, @listing.id)
+    = link_to "Buy in store", "/merchant_store/redirect.html?url=#{@listing.affiliate_url}", :class => "affiliate_link", :target => "_blank"
 
-      - if @listing_presenter.quantity_per_day_or_night?
-        - @listing_presenter.blocked_dates_result.on_success do
-          %button.enabled-book-button
-            .content
-              = action_button_label(@listing)
 
-        - @listing_presenter.blocked_dates_result.on_error do
-          %button.disabled-book-button{disabled: true}
-            .content
-              = action_button_label(@listing)
-      - else
-        %button.enabled-book-button
-          .content
-            = action_button_label(@listing)
 
     - if @listing_presenter.payments_enabled?
       .row

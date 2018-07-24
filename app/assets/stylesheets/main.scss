@@ -56,6 +56,7 @@ body {
     hyphens: auto;
     overflow-wrap: break-word;
     word-wrap: break-word;
+    text-align: justify;
   }
 
   br {
@@ -1955,6 +1956,8 @@ figure.fluidratio {
 
 .marketplace-lander {
   position: relative;
+  max-width: 63em;
+  margin: 0 auto;
 
   figure.marketplace-cover {
     background-image: url(image-path($cover-photo-url));

@@ -97,7 +97,7 @@
                 = t(".listing_created_at")
                 = l @listing.created_at, :format => :short_date
 
-    - if !@current_community.private?
+    - if !@current_community.private? && false
       .row
         .col-12
           .listing-social
@@ -146,12 +146,13 @@
         .listing-author
           .listing-author-avatar
             = medium_avatar_thumb(@listing.author, {:class => "listing-author-avatar-image"})
+            = @listing.author.site_contact_us  if @listing
           .listing-author-details
             .listing-author-name
               = link_to PersonViewUtils.person_display_name(@listing.author, @current_community), @listing.author, :id => "listing-author-link", :class => "listing-author-name-link", :title => "#{PersonViewUtils.person_display_name(@listing.author, @current_community)}"
             - if @listing.author != @current_user
               .listing-author-contact
-                %a#listing-contact{href: contact_to_listing_path(:listing_id => @listing.id.to_s), :class => "listing-author-contact-button"}
+                %a#listing-contact{href: "/merchant_store/redirect.html?url=https://#{@listing.author.merchant_canonical_name}.myshopmatic.com", :class => "listing-author-contact-button", target:"_blank" }
                   .content
                     = t(".contact")
 
