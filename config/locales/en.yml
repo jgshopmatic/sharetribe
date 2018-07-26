@@ -2074,8 +2074,8 @@ en:
       reviews: "received reviews"
       listing: listing
       listings: listings
-      open_listing: "open listing"
-      open_listings: "open listings"
+      open_listing: "products"
+      open_listings: "products"
       no_listings: "No listings"
       no_open_listings: "No open listings"
       no_reviews: "No reviews"

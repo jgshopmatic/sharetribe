@@ -42,12 +42,13 @@
 
   <div class="box">
 
-      <h2>Redirecting you to <div id="merchant_store"> </div></h2>
+      <h2>Redirecting you to store <div id="merchant_store"> </div></h2>
       <p>If you are not automatically redirected <a  id="redirect_url" >click here</a></p>
 
   </div>
 </body>
 <script>
+
   var timer = setTimeout(function() {
     window.location= getUrlParameter('url')
   }, 2000);
@@ -59,6 +60,7 @@
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
   };
 
+  document.getElementById('merchant_store').innerHTML = getUrlParameter('store')
    window.redirect_url = getUrlParameter('url')
   document.getElementById('redirect_url').href = window.redirect_url;
 
