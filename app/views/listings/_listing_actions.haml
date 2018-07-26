@@ -84,7 +84,7 @@
 
       = render partial: "delivery_opts", locals: { delivery_opts: @listing_presenter.delivery_opts, is_author: @listing_presenter.is_author }
 
-    = link_to "Buy in store", "/merchant_store/redirect.html?url=#{@listing.affiliate_url}", :class => "affiliate_link", :target => "_blank"
+    = link_to "Buy in store", "/merchant_store/redirect.html?url=#{@listing.affiliate_url}&store=#{@listing.author.merchant_canonical_name}", :class => "affiliate_link", :target => "_blank"
 
 
 
