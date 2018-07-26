@@ -1,6 +1,7 @@
 - if current_user?(@person)
   = render :partial => "people/edit_profile_button"
 - else
+  = @person.site_contact_us if @person
   %a.profile-contact-link{href: "/merchant_store/redirect.html?url=https://#{@person.merchant_canonical_name}.myshopmatic.com", target:"_blank" }
     .content
       = t("people.show.contact", :person => "Store")
