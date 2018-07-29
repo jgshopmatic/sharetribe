@@ -1,57 +1,55 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="utf-8">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        html, body {
+            background-color: #f6f7f7;
+            font-family: 'Source Sans Pro', sans-serif;
+            text-align: center;
+            color: #333;
+        }
 
-  <meta charset="utf-8">
-        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
-    <meta http-equiv="refresh" content="3;url=http://www.somewhere.com/" />
-        <style type="text/css">
+        h2 {
+            padding: 60px 20px 10px;
+            font-size: 26px;
+        }
 
-    html, body {
-      background-color: #f6f7f7;
-      font-family: 'Source Sans Pro', sans-serif;
-      text-align: center;
-      color: #333;
-    }
+        p {
+            padding: 0 50px;
+            font-size: 18px;
+            line-height: 28px;
+            padding-bottom: 60px;
+        }
 
-    h2 {
-      padding: 60px 20px 10px;
-      font-size: 26px;
-    }
+        .box {
+            max-width: 620px;
+            width: 90%;
+            background-color: #ffffff;
+            border-radius: 5px;
+            margin: 10% auto 0;
+        }
 
-    p {
-      padding: 0 50px;
-      font-size: 18px;
-      line-height: 28px;
-      padding-bottom: 60px;
-    }
-
-    .box {
-      max-width: 620px;
-      width: 90%;
-      background-color: #ffffff;
-      border-radius: 5px;
-      margin: 10% auto 0;
-    }
-
- </style>
+    </style>
 
 </head>
 <body>
 
-  <div class="box">
+<div class="box">
 
-      <h2>Redirecting you to <div id="merchant_store">store</div></h2>
-      <p>If you are not automatically redirected <a  id="redirect_url" >click here</a></p>
+    <h2>Redirecting you to
+        <div id="merchant_store">store</div>
+    </h2>
+    <p>If you are not automatically redirected <a id="redirect_url">click here</a></p>
 
-  </div>
+</div>
 </body>
 <script>
 
-  var timer = setTimeout(function() {
-    window.location= getUrlParameter('url')
-  }, 2000);
+  var timer = setTimeout(function () {
+    window.location = getUrlParameter('url')
+  }, 1000);
 
   function getUrlParameter(name) {
     name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
@@ -61,7 +59,7 @@
   };
 
   document.getElementById('merchant_store').innerHTML = getUrlParameter('store')
-   window.redirect_url = getUrlParameter('url')
+  window.redirect_url = getUrlParameter('url')
   document.getElementById('redirect_url').href = window.redirect_url;
 
 </script>
