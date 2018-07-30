@@ -40,6 +40,7 @@ $profile-pic-gutter-mobile: lines(0.5);
 
 .profile-action-buttons-desktop {
   display: none;
+  text-align: center;
 
   @include media(tablet) {
     display: block;
