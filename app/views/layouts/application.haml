@@ -51,6 +51,7 @@
             - if ((@person || @listing) && (@person ? @person: @listing.author).site_cover_image?)
               %figure.marketplace-cover-small-fade{:style => "background-image: url('#{ (@person ? @person: @listing.author).site_cover_image }')"}
             - else
+              %figure.marketplace-cover-small.fluidratio
             .people-image
               = huge_avatar_thumb(@person ? @person: @listing.author) if (@person || @listing)
 
