@@ -22,6 +22,7 @@ export default function AddNewListingButton({ text, url, customColor, className,
 
   return a({
     className: classNames(className, 'AddNewListingButton', css.button, { [css.responsiveLayout]: !mobileLayoutOnly }),
+    target: "_blank",
     href: url,
     title: text,
     onMouseOver: (e) => {
