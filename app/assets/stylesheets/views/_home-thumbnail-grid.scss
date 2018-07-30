@@ -39,6 +39,7 @@ $home-thumbnail-grid-author: $home-thumbnail-grid-avatar + ($home-thumbnail-grid
   left: (2.5 * $home-thumbnail-grid-avatar-padding) + $home-thumbnail-grid-avatar; // 2.5 for some extra padding
   right: $home-thumbnail-grid-avatar-padding;
   bottom: $home-thumbnail-grid-avatar-padding;
+  text-align: right;
 
   // Vertical centering
   line-height: $home-thumbnail-grid-avatar;
