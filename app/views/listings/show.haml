@@ -149,7 +149,7 @@
             = @listing.author.site_contact_us  if @listing
           .listing-author-details
             .listing-author-name
-              = link_to PersonViewUtils.person_display_name(@listing.author, @current_community), @listing.author, :id => "listing-author-link", :class => "listing-author-name-link", :title => "#{@listing.author.merchant_name}"
+              = link_to @listing.author.merchant_name, @listing.author, :id => "listing-author-link", :class => "listing-author-name-link", :title => "#{@listing.author.merchant_name}"
             - if @listing.author != @current_user
 
               .listing-author-contact

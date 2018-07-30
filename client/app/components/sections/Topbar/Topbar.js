@@ -267,7 +267,7 @@ class Topbar extends Component {
         r(AddNewListingButton, {
           ...this.props.newListingButton,
           className: css.topbarListingButton,
-          url: newListingRoute,
+          url: 'https://myshopmatic.com/login',
           customColor: marketplaceColor1,
         }) :
       null,
