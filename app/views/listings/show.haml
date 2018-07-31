@@ -153,7 +153,7 @@
             - if @listing.author != @current_user
 
               .listing-author-contact
-                %a#listing-contact{href: "/merchant_store/redirect.html?url=https://#{@listing.author.merchant_canonical_name}.myshopmatic.com", :class => "listing-author-contact-button", target:"_blank" }
+                %a#listing-contact{href: "/merchant_store/redirect.html?url=#{@listing.affiliate_url}&store=#{@listing.author.merchant_canonical_name}", :class => "listing-author-contact-button", target:"_blank" }
                   .content
                     = t(".contact")
 
