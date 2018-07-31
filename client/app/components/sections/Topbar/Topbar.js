@@ -262,26 +262,8 @@ class Topbar extends Component {
           },
         }) :
         div({ className: css.topbarMobileSearchPlaceholder }),
-          div({ className: css.topbarMenuSpacer }, hasMenuProps ?
-            r(MenuPriority, menuProps) :
-            null),
-          hasMultipleLanguages ? r(Menu, {
-              ...languageMenuProps,
-            className: {
-            [css.topbarMenu]: true,
-          } }) : null,
-      this.props.avatarDropdown && loggedInUsername ?
-        r(AvatarDropdown, {
-            ...avatarDropdownProps(this.props.avatarDropdown, marketplaceColor1,
-            loggedInUsername, isAdmin, this.props.unReadMessagesCount, this.props.routes),
-          classSet: css.topbarAvatarDropdown,
-  }) :
-    r(LoginLinks, {
-      loginUrl: loginRoute,
-      signupUrl: signupRoute,
-      customColor: marketplaceColor1,
-      className: css.topbarLinks,
-    }),
+          r.a({ className: classNames('topbar-link'), href: '/en/infos/terms', title: 'terms'}, 'Terms & Conditions'),
+          r.a({ className: classNames('topbar-link'), href: '/en/infos/privacy', title: 'privacy'}, 'Privacy Policy'),
       this.props.newListingButton ?
         r(AddNewListingButton, {
           ...this.props.newListingButton,

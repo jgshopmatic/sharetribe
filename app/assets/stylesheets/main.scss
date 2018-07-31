@@ -2197,3 +2197,10 @@ figure.fluidratio {
     }
   }
 }
+.topbar-link {
+  color: #fff;
+  font-weight: 600;
+  &:hover {
+    color: #b4b2b2;
+  }
+}

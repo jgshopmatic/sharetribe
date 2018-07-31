@@ -219,7 +219,9 @@
     margin: var(--Topbar_avatarPadding);
   }
 }
-
+.topbar-link {
+  color: #fff;
+}
 .topbarLinks {
   display: none;
 
