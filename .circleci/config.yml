@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-    - image: jideshgopalan/docker-dind-mina-deploy
+    - image: jakubkoval/mina-deployer-docker
     working_directory: ~/circleci-demo-workflows
     steps:
     - checkout
