@@ -21,7 +21,7 @@ class OffScreenMenu extends Component {
       this.props.avatar ? div({ className: css.avatarSpacer }, r(Avatar, { ...this.props.avatar, ...avatarExtras })) : null,
       this.props.newListingButton ? r(AddNewListingButton, { ...this.props.newListingButton, ...buttonExtras }) : null,
     ] : [
-      r(LoginLinks, this.props.loginLinks),
+      
     ];
     const languagesMobile = this.props.languages ?
       r(LanguagesMobile, this.props.languages) : null;

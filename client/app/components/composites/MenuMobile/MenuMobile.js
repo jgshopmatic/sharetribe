@@ -56,10 +56,7 @@ class MenuMobile extends Component {
         onClick: this.closeMenu,
         className: `MenuMobile_overlay ${css.overlay}`,
       }),
-      r(MenuLabelMobile, {
-        name: this.props.name,
-        handleClick: this.handleClick,
-      }, notificationBadgeInArray),
+      
       r(OffScreenMenu, {
         toggleOpen: this.closeMenu,
         isOpen: this.state.isOpen,

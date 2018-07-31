@@ -30,9 +30,7 @@ class MenuItem extends Component {
           style: { backgroundColor: this.activeColor },
         }) :
         null,
-      a(
-        linkProps,
-        this.props.content),
+     
     ]);
   }
 }
