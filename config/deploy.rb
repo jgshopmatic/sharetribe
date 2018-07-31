@@ -9,7 +9,7 @@ require "mina/rbenv"  # for rbenv support. (https://rbenv.org)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
 set :application_name, "sharetribe"
-set :domain, "sharetribe"
+set :domain, "dev.goshopmatic.com"
 set :deploy_to, "/home/gaurav/app/sharetribe"
 set :repository, "git@github.com:jgshopmatic/sharetribe.git"
 set :branch, "dev"
@@ -36,7 +36,7 @@ end
 # Put any custom commands you need to run at setup
 # All paths in `shared_dirs` and `shared_paths` will be created on their own.
 task :setup do
-  command %{rbenv install 2.3.4 --skip-existing}
+  command %{rbenv install 2.5.1 --skip-existing}
   command %{eval "$(ssh-agent -s)"}
   command %{ssh-add ~/.ssh/sharetribe}
   command %{export RAILS_ENV=production}
