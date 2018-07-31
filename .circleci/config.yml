@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  deploy:
     docker:
     - image: jakubkoval/mina-deployer-docker
     working_directory: ~/circleci-demo-workflows
@@ -9,26 +9,16 @@ jobs:
     - run:
         name: Deploy Over SSH
         command: |
-          ssh $SSH_USER@$SSH_HOST "mina deploy"
+          mina deploy
     # - run: bundle install --path vendor/bundle  # install dependencies
 
-  deploy:
-    machine:
-      enabled: true
-    steps:
-    - run:
-        name: Deploy Over SSH
-        command: |
-          ssh $SSH_USER@$SSH_HOST "echo deploy"
+
 
 workflows:
   version: 2
-  build-and-deploy:
+  deploy:
     jobs:
-    - build
     - deploy:
-        requires:
-        - build
         filters:
           branches:
             only: dev
