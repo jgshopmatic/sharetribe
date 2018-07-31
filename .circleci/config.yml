@@ -6,6 +6,10 @@ jobs:
     working_directory: ~/circleci-demo-workflows
     steps:
     - checkout
+    - run:
+        name: Deploy Over SSH
+        command: |
+          ssh $SSH_USER@$SSH_HOST "mina deploy"
     # - run: bundle install --path vendor/bundle  # install dependencies
 
   deploy:
@@ -15,7 +19,7 @@ jobs:
     - run:
         name: Deploy Over SSH
         command: |
-          ssh $SSH_USER@$SSH_HOST "mina deploy"
+          ssh $SSH_USER@$SSH_HOST "echo deploy"
 
 workflows:
   version: 2
