@@ -9,7 +9,7 @@ require "mina/rbenv"  # for rbenv support. (https://rbenv.org)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
 set :application_name, "sharetribe"
-set :domain, "dev.goshopmatic.com"
+set :domain, "sharetribe"
 set :deploy_to, "/home/gaurav/app/sharetribe"
 set :repository, "git@github.com:jgshopmatic/sharetribe.git"
 set :branch, "dev"
