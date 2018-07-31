@@ -2,11 +2,11 @@ version: 2
 jobs:
   build:
     docker:
-    - image: circleci/ruby:2.5.1-node-browsers
+    - image: jakubkoval/mina-deployer-docker
     working_directory: ~/circleci-demo-workflows
     steps:
     - checkout
-    - run: bundle install --path vendor/bundle  # install dependencies
+    # - run: bundle install --path vendor/bundle  # install dependencies
 
   deploy:
     machine:
