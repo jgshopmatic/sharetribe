@@ -95,8 +95,15 @@ module ApplicationHelper
     # FIXME! Need a new picture size: :large
 
     image_url = person.site_logo? ? person.site_logo : missing_avatar(:medium)
+    #link_to_unless(person.deleted?, image_tag(image_url, options), person)
+    options = { "style" => " -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border-radius: 15px;
+    border: 8px solid #fff;
+    width: 100%;
+    background: white;"}
+    link_to_unless(person.deleted?, image_tag( image_url, { :alt => PersonViewUtils.person_display_name(person, @current_community) }.merge(options)), person)
 
-    image_tag image_url, { :alt => PersonViewUtils.person_display_name(person, @current_community) }.merge(options)
   end
 
   def missing_avatar(size = :medium)
