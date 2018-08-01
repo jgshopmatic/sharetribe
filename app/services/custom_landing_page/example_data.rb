@@ -115,24 +115,24 @@ module CustomLandingPage
       "id": "two_column_info_with_icons_and_buttons",
       "kind": "info",
       "variation": "multi_column",
-      "title": "Two column info section with icons and buttons",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "icon_color": {"type": "marketplace_data", "id": "primary_color"},
       "columns": [
         {
           "icon": "grape",
-          "title": "Column 1",
-          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.\\n\\nParagraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
-          "button_title": "Go to sharetribe.com",
-          "button_path": {"value": "https://www.sharetribe.com"}
+          "title": "Woods and Petals",
+          "paragraph": "At Woods and Petals herbals we encourage you to think where your consumables come from. ",
+          "button_title": "Woods and Petals",
+          "button_path": {"value": "https://dev.goshopmatic.com/en/woodsandpetals"}
         },
         {
           "icon": "watering-can",
-          "title": "Column 2",
-          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
-          "button_title": "Go to sharetribe.com",
-          "button_path": {"value": "https://www.sharetribe.com"}
+          "title": "The Local Book Hoarders",  
+          "background_image": {"type": "assets", "id": "default_hero_background"},
+          "paragraph": "Buy preloved books curated by book lovers who cherish the feel of an actual book",
+          "button_title": "The Local Book Hoarders",
+          "button_path": {"value": "https://dev.goshopmatic.com/en/thelocalbookhoarders"}
         }
       ]
     },
@@ -156,31 +156,31 @@ module CustomLandingPage
       "id": "three_column_info_with_icons_and_buttons",
       "kind": "info",
       "variation": "multi_column",
-      "title": "Three column info with icons and buttons",
+      "title": "",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "icon_color": {"type": "marketplace_data", "id": "primary_color"},
       "columns": [
         {
-          "title": "Column 1",
+          "title": "APlusO",
           "icon": "quill",
-          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
-          "button_title": "Go to sharetribe.com",
-          "button_path": {"value": "https://www.sharetribe.com"}
+          "paragraph": "Authenticity + Originality. A+O (UEN: 53354857L) is a lifestyle brand carefully curated and dedicated for the little ones",
+          "button_title": "AplusO",
+          "button_path": {"value": "https://dev.goshopmatic.com/en/apluso"}
         },
         {
-          "title": "Column 2",
+          "title": "Madiha Jaipur",
           "icon": "piggy-bank",
-          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
-          "button_title": "Go to sharetribe.com",
-          "button_path": {"value": "https://www.sharetribe.com"}
+          "paragraph": "Madiha Jaipur brings to life pieces that are refined and playful. The name Madihai in Arabic means Praiseworthy, & as the name suggests, they live by the belief- Every Woman Is Praiseworthy",
+          "button_title": "Madiha Jaipur",
+          "button_path": {"value": "https://dev.goshopmatic.com/en/madihajaipur"}
         },
         {
-          "title": "Column 3",
+          "title": "Weald Heritage",
           "icon": "globe-1",
-          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
-          "button_title": "Go to sharetribe.com",
-          "button_path": {"value": "https://www.sharetribe.com"}
+          "paragraph": "Weald Heritage is started with a thought to bring some interesting and antique products for almost every purpose, For your own home or to gift someone",
+          "button_title": "Weald Heritage",
+          "button_path": {"value": "https://dev.goshopmatic.com/en/wealdheritage"}
         }
       ]
     },
@@ -355,7 +355,6 @@ module CustomLandingPage
   ],
 
   "composition": [
-    { "section": {"type": "sections", "id": "hero"}},
     { "section": {"type": "sections", "id": "two_column_info_with_icons_and_buttons"}},
     { "section": {"type": "sections", "id": "three_column_info_with_icons_and_buttons"}},
     { "section": {"type": "sections", "id": "footer"}}
