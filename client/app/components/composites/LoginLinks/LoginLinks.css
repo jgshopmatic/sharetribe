@@ -2,7 +2,9 @@
   height: 100%;
   font-family: var(--Topbar_fontFamily);
 }
-
+.topbar-link {
+  color: #fff !important;
+}
 .link {
   display: inline-block;
   height: 100%;

@@ -1,6 +1,18 @@
 - if @listing
-  .p
-    =@listing.author.merchant_shipping.html_safe
+  =@listing.author.site_contact_us.split("\n")[0].strip.remove(',') if !@listing.author.site_contact_us.split("\n")[0].nil? || !@listing.author.site_contact_us.split("\n")[0] != ","
+  .br
+  =@listing.author.site_contact_us.split("\n")[1].strip.remove(',') if !@listing.author.site_contact_us.split("\n")[1].nil? || !@listing.author.site_contact_us.split("\n")[1] != ","
+  .br
+  =@listing.author.site_contact_us.split("\n")[2].strip.remove(',')  if !@listing.author.site_contact_us.split("\n")[2].nil? || !@listing.author.site_contact_us.split("\n")[2] != ","
+  .br
+  =@listing.author.site_contact_us.split("\n")[3].strip.remove(',')  if !@listing.author.site_contact_us.split("\n")[3].nil?  || !@listing.author.site_contact_us.split("\n")[3] != ","
+  .br
 - if @person
-  .p
-    =@person.merchant_shipping.html_safe
+  =@person.site_contact_us.split("\n")[0].strip.remove(',')  if !@person.site_contact_us.split("\n")[0].nil?   || !@person.site_contact_us.split("\n")[0] != ","
+  .br
+  =@person.site_contact_us.split("\n")[1].strip.remove(',') if !@person.site_contact_us.split("\n")[1].nil? || !@person.site_contact_us.split("\n")[1] != ","
+  .br
+  =@person.site_contact_us.split("\n")[2].strip.remove(',') if !@person.site_contact_us.split("\n")[2].nil?   || !@person.site_contact_us.split("\n")[2] != ","
+  .br
+  =@person.site_contact_us.split("\n")[3].strip.remove(',')  if !@person.site_contact_us.split("\n")[3].nil?  || !@person.site_contact_us.split("\n")[3] != ","
+  .br

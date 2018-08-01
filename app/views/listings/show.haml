@@ -146,7 +146,7 @@
         .listing-author
           .listing-author-avatar
             = medium_avatar_thumb(@listing.author, {:class => "listing-author-avatar-image"})
-            = render :partial => "people/contact_us"
+            = render :partial => "people/shipping_info"
           .listing-author-details
             .listing-author-name
               = link_to @listing.author.merchant_name, @listing.author, :id => "listing-author-link", :class => "listing-author-name-link", :title => "#{@listing.author.merchant_name}"

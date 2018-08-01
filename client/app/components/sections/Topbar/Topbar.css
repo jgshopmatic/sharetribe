@@ -167,6 +167,9 @@
       display: inline-block;
     }
   }
+  .topbar-link {
+    color: #fff;
+  }
 }
 
 .topbarMenuSpacer {
