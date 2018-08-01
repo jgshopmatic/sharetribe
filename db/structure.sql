@@ -921,15 +921,43 @@ CREATE TABLE `menu_links` (
   KEY `index_menu_links_on_community_and_sort` (`community_id`,`sort_priority`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-DROP TABLE IF EXISTS `merchants`;
+DROP TABLE IF EXISTS `merchant_products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `merchants` (
-  `id` bigint(20) NOT NULL,
-  `cover_image` varchar(255) DEFAULT NULL,
-  `about_us` blob,
-  `brand_image` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `merchant_products` (
+  `name` text COLLATE utf8mb4_unicode_ci,
+  `title` text COLLATE utf8mb4_unicode_ci,
+  `canonical_name` text COLLATE utf8mb4_unicode_ci,
+  `sku` text COLLATE utf8mb4_unicode_ci,
+  `description` blob,
+  `price` decimal(10,0) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `stock_sum` int(11) DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `list_price` decimal(10,0) DEFAULT NULL,
+  `allow_oversell` tinyint(1) DEFAULT '1',
+  `image_1` text COLLATE utf8mb4_unicode_ci,
+  `image_2` text COLLATE utf8mb4_unicode_ci,
+  `image_3` text COLLATE utf8mb4_unicode_ci,
+  `image_4` text COLLATE utf8mb4_unicode_ci,
+  `slug` text COLLATE utf8mb4_unicode_ci,
+  `site_id` int(11) DEFAULT NULL,
+  `upc_code` text COLLATE utf8mb4_unicode_ci,
+  `option_name` text COLLATE utf8mb4_unicode_ci,
+  `maximum_retail_price` decimal(10,0) DEFAULT NULL,
+  `shipping_details` text COLLATE utf8mb4_unicode_ci,
+  `tenant_id` int(11) DEFAULT NULL,
+  `merchant_schema_id` int(11) DEFAULT NULL,
+  `p_id` int(11) NOT NULL DEFAULT '0',
+  `pc_id` int(11) DEFAULT NULL,
+  `pcp_id` int(11) DEFAULT NULL,
+  `merchant_name` text COLLATE utf8mb4_unicode_ci,
+  `site` text COLLATE utf8mb4_unicode_ci,
+  `fqdn` text COLLATE utf8mb4_unicode_ci,
+  `url` text COLLATE utf8mb4_unicode_ci,
+  PRIMARY KEY (`p_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `mercury_images`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1199,7 +1227,7 @@ CREATE TABLE `people` (
   `merchant_name` varchar(255) DEFAULT '',
   `merchant_canonical_name` varchar(255) DEFAULT '',
   `merchant_status` int(11) DEFAULT '0',
-  `merchant_salesforce_id` varchar(255) DEFAULT '',
+  `merchant_salesforce_id` varchar(255) DEFAULT '0',
   `merchant_notification_email` varchar(255) DEFAULT '',
   `domain_id` bigint(20) DEFAULT '0',
   `domain_fqdn` varchar(255) DEFAULT '',
@@ -1215,6 +1243,7 @@ CREATE TABLE `people` (
   `about_us_raw` mediumblob,
   `site_contact_us` text,
   `merchant_category` varchar(255) DEFAULT '',
+  `merchant_shipping` varchar(255) DEFAULT '',
   UNIQUE KEY `index_people_on_username_and_community_id` (`username`,`community_id`) USING BTREE,
   UNIQUE KEY `index_people_on_uuid` (`uuid`),
   UNIQUE KEY `index_people_on_email` (`email`) USING BTREE,
@@ -2305,10 +2334,10 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20180524081429'),
 ('20180608064909'),
 ('20180608070230'),
-('20180710091213'),
 ('20180710092631'),
 ('20180712043349'),
 ('20180719034044'),
-('20180720075807');
+('20180720075807'),
+('20180801081256');
 
 
